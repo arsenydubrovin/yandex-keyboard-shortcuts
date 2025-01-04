@@ -1,8 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "yandex",
+  "name": "Yandex Search Keyboard Shortcuts",
   "version": "1.0",
-  "description": "",
+  "description": "Navigate Yandex search results using keyboard shortcuts.\nUse up/down arrows to navigate, Enter to open, Cmd/Ctrl+Enter to open in a background tab.",
+  "homepage_url": "https://github.com/arsenydubrovin/yandex-keyboard-shortcuts",
   "content_scripts": [
     {
       "matches": [
