@@ -16,6 +16,12 @@
       ]
     }
   ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
   "permissions": [
     "activeTab",
     "tabs"

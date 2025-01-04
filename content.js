@@ -66,8 +66,7 @@ const handleKeydown = (e) => {
 		e.preventDefault();
 
 		if (e.ctrlKey || e.metaKey) {
-			// TODO: open in new background tab
-			window.open(link.href, "_blank");
+			newTab(link.href);
 			return;
 		}
 
@@ -77,6 +76,15 @@ const handleKeydown = (e) => {
 		deselectResults();
 		e.preventDefault();
 	}
+};
+
+const newTab = (url) => {
+	browser.runtime
+		.sendMessage({ command: "createTab", url })
+		.then((response) => {
+			console.log(response.status);
+		})
+		.catch((error) => console.error("Error sending message:", error));
 };
 
 updateResults();
