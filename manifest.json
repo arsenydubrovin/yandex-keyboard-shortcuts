@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "yandex",
+  "version": "1.0",
+  "description": "",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://ya.ru/search/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "style.css"
+      ]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ]
+}
