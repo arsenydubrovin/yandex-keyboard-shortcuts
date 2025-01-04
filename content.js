@@ -2,16 +2,19 @@ let results = [];
 let index = -1;
 
 const getResults = () => {
-	const searchResults = document.querySelectorAll("#search-result > li");
-	return Array.from(searchResults).filter((result) => {
-		return !(
-			result.classList.contains("Root-FuturisSearchOuter") ||
-			result.classList.contains("SearchResultsHeader") ||
-			result.classList.contains("serp-item__futuris-snippet") ||
-			result.classList.contains("FactHeader") ||
-			result.querySelector("div.Translate") !== null
-		);
-	});
+    const searchResults = document.querySelectorAll("#search-result > li");
+    return Array.from(searchResults).filter((result) => {
+        const computedStyle = window.getComputedStyle(result);
+        const isVisible = computedStyle.display !== 'none';
+
+        return isVisible && !(
+            result.classList.contains("Root-FuturisSearchOuter") ||
+            result.classList.contains("SearchResultsHeader") ||
+            result.classList.contains("serp-item__futuris-snippet") ||
+            result.classList.contains("FactHeader") ||
+            result.querySelector("div.Translate") !== null
+        );
+    });
 };
 
 const updateResults = () => {
@@ -48,6 +51,8 @@ const handleKeydown = (e) => {
 	if (document.activeElement === searchbar) {
 		return;
 	}
+
+	console.log(index)
 
 	if (e.key === "ArrowDown" && index < results.length - 1) {
 		index++;
