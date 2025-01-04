@@ -12,6 +12,7 @@ const getResults = () => {
             result.classList.contains("SearchResultsHeader") ||
             result.classList.contains("serp-item__futuris-snippet") ||
             result.classList.contains("FactHeader") ||
+            result.classList.contains("serp-item_card-metadoc") ||
             result.querySelector("div.Translate") !== null
         );
     });
