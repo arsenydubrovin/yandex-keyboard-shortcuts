@@ -2,20 +2,23 @@ let results = [];
 let index = -1;
 
 const getResults = () => {
-    const searchResults = document.querySelectorAll("#search-result > li");
-    return Array.from(searchResults).filter((result) => {
-        const computedStyle = window.getComputedStyle(result);
-        const isVisible = computedStyle.display !== 'none';
+	const searchResults = document.querySelectorAll("#search-result > li");
+	return Array.from(searchResults).filter((result) => {
+		const computedStyle = window.getComputedStyle(result);
+		const isVisible = computedStyle.display !== "none";
 
-        return isVisible && !(
-            result.classList.contains("Root-FuturisSearchOuter") ||
-            result.classList.contains("SearchResultsHeader") ||
-            result.classList.contains("serp-item__futuris-snippet") ||
-            result.classList.contains("FactHeader") ||
-            result.classList.contains("serp-item_card-metadoc") ||
-            result.querySelector("div.Translate") !== null
-        );
-    });
+		return (
+			isVisible &&
+			!(
+				result.classList.contains("Root-FuturisSearchOuter") ||
+				result.classList.contains("SearchResultsHeader") ||
+				result.classList.contains("serp-item__futuris-snippet") ||
+				result.classList.contains("FactHeader") ||
+				result.classList.contains("serp-item_card-metadoc") ||
+				result.querySelector("div.Translate") !== null
+			)
+		);
+	});
 };
 
 const updateResults = () => {
@@ -48,7 +51,11 @@ const deselectResults = () => {
 };
 
 const handleKeydown = (e) => {
-	const searchbar = document.querySelector('.HeaderForm-Input');
+	if (e.key === "Escape") {
+		deselectResults();
+	}
+
+	const searchbar = document.querySelector(".HeaderForm-Input");
 	if (document.activeElement === searchbar) {
 		// console.log('search input is active')
 		return;
@@ -76,10 +83,6 @@ const handleKeydown = (e) => {
 		}
 
 		window.open(link.href, "_blank");
-	}
-	if (e.key === "Escape") {
-		deselectResults();
-		e.preventDefault();
 	}
 };
 

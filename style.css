@@ -1,3 +1,22 @@
 .highlight {
   background-color: rgba(255, 235, 160, 0.25);
 }
+
+/*Это можно будет стили добавить*/
+
+/*.yellow-highlight {
+  background-color: rgba(255, 235, 160, 0.25);
+  ;
+}
+
+.gray-highlight {
+  background-color: rgb(210, 210, 210);
+}
+
+.yellow-border {
+  border: 2px solid rgb(255, 204, 1);
+}
+
+.gray-border {
+  border: 2px solid rgb(210, 210, 210);
+}*/
