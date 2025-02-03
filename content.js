@@ -48,12 +48,11 @@ const deselectResults = () => {
 };
 
 const handleKeydown = (e) => {
-	const searchbar = document.querySelector('input[name="text"]');
+	const searchbar = document.querySelector('.HeaderForm-Input');
 	if (document.activeElement === searchbar) {
+		// console.log('search input is active')
 		return;
 	}
-
-	console.log(index)
 
 	if (e.key === "ArrowDown" && index < results.length - 1) {
 		index++;
